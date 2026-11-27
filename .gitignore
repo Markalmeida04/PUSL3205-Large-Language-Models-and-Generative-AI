@@ -1,0 +1,10 @@
+
+rag_env/
+chroma_db/
+__pycache__/
+.venv/
+
+rag_env/
+chroma_db/
+__pycache__/
+.venv/
