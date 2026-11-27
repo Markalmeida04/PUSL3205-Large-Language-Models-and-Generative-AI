@@ -8,3 +8,5 @@ rag_env/
 chroma_db/
 __pycache__/
 .venv/
+
+*.db-journal
