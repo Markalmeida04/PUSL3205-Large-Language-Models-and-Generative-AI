@@ -7,7 +7,7 @@ from datetime import datetime
 import psutil
 import pyautogui
 
-# 1. Calculator Tool (Opens Windows Calculator & types calculation)
+
 def open_calculator(expression: str) -> str:
     subprocess.Popen("calc.exe")
     time.sleep(1.5)
@@ -19,7 +19,7 @@ def open_calculator(expression: str) -> str:
         result = "Displayed in Windows Calculator"
     return f"[Calculator Opened] Typed '{clean_expr}=' -> Result: {result}"
 
-# 2. Date and Time Tool
+
 def get_datetime() -> str:
     return f"Current Date & Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
 
@@ -30,21 +30,21 @@ def open_notepad(text: str) -> str:
     pyautogui.write(text, interval=0.05)
     return f"[Notepad Opened] Typed: '{text}'"
 
-# 4. File Search Tool
+
 def search_files(directory: str, pattern: str = "*.pdf") -> str:
     if not os.path.exists(directory):
         directory = "."
     matches = glob.glob(os.path.join(directory, "**", pattern), recursive=True)
     return f"Found {len(matches)} file(s) matching '{pattern}' in '{directory}': {matches[:5]}"
 
-# 5. File Creation Tool
+
 def create_text_file(filepath: str, content: str) -> str:
     os.makedirs(os.path.dirname(os.path.abspath(filepath)), exist_ok=True)
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(content)
     return f"Created file '{filepath}' with content: '{content}'"
 
-# 6. System Information Tool
+
 def get_system_info() -> str:
     ram_gb = round(psutil.virtual_memory().total / (1024 ** 3), 2)
     return (
@@ -53,7 +53,7 @@ def get_system_info() -> str:
         f"Total RAM: {ram_gb} GB"
     )
 
-# Agent Router & Execution Loop
+
 def run_tool_agent(query: str):
     q = query.lower()
     print(f"\nUser Query: {query}")
@@ -79,7 +79,7 @@ def run_tool_agent(query: str):
         print("[TOOL RESULT]", get_system_info())
 
 if __name__ == "__main__":
-    # Execute all 6 test queries from Lab Sheet 6 Exercise
+    
     test_queries = [
         "Calculate 25 × 4",
         "What is the date today?",
